@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env
+
+# Large model cache (downloaded automatically by HuggingFace)
+~/.cache/huggingface/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Large intermediate files (optional - if CSV files are too large)
+# data/processed/comments_unified.csv

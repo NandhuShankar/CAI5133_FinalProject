@@ -1,0 +1,149 @@
+======================================================================
+STATISTICAL VALIDATION REPORT
+======================================================================
+
+── EMOTION × TIER CONTINGENCY TABLE (counts) ───────────────────────
+macro_emotion       admiration/approval  amusement/joy  concern/disappointment  curiosity/interest  negative/critical  neutral/analytical
+tier                                                                                                                                     
+tier0_baseline                     1965           2090                     436                 962                822                8725
+tier1_general_tech                 1011            538                     220                 744                607                4701
+tier2_niche_tech                   1989           1221                     323                1066                887                8569
+
+  (Row percentages):
+macro_emotion       admiration/approval  amusement/joy  concern/disappointment  curiosity/interest  negative/critical  neutral/analytical
+tier                                                                                                                                     
+tier0_baseline                    13.10          13.93                    2.91                6.41               5.48               58.17
+tier1_general_tech                12.93           6.88                    2.81                9.51               7.76               60.11
+tier2_niche_tech                  14.15           8.69                    2.30                7.58               6.31               60.97
+
+── TEST 1: OVERALL CHI-SQUARE (all 3 tiers) ────────────────────────
+
+  Comparison : All tiers vs all emotions
+  N          : 36,876
+  χ²         : 449.27  (df=10)
+  p (raw)    : 3.00e-90
+  p (corr.)  : 3.00e-90  ***
+  Cramér's V : 0.0780  [negligible effect]
+
+  Interpretation: tests whether emotion distributions differ
+  significantly across the three audience tiers overall.
+
+── TEST 2: PAIRWISE CHI-SQUARE (Bonferroni k=3) ────────────────────
+
+  Comparison : Tier0 vs Tier1
+  N          : 22,821
+  χ²         : 334.50  (df=5)
+  p (raw)    : 3.79e-70
+  p (corr.)  : 1.14e-69  ***
+  Cramér's V : 0.1211  [small effect]
+
+  Comparison : Tier0 vs Tier2
+  N          : 29,055
+  χ²         : 223.76  (df=5)
+  p (raw)    : 2.33e-46
+  p (corr.)  : 6.98e-46  ***
+  Cramér's V : 0.0878  [negligible effect]
+
+  Comparison : Tier1 vs Tier2
+  N          : 21,876
+  χ²         : 69.97  (df=5)
+  p (raw)    : 1.04e-13
+  p (corr.)  : 3.12e-13  ***
+  Cramér's V : 0.0566  [negligible effect]
+
+── EFFECT SIZE SUMMARY (Cramér's V) ────────────────────────────────
+               Comparison  Cramér's V     Effect p (corr.) Sig
+All tiers vs all emotions      0.0780 negligible  3.00e-90 ***
+           Tier0 vs Tier1      0.1211      small  1.14e-69 ***
+           Tier0 vs Tier2      0.0878 negligible  6.98e-46 ***
+           Tier1 vs Tier2      0.0566 negligible  3.12e-13 ***
+
+  Significance: *** p<0.001  ** p<0.01  * p<0.05  ns=not significant
+  Effect size : negligible<0.1  small<0.2  medium<0.3  large≥0.3
+
+── TEST 3: STANDARDISED RESIDUALS ──────────────────────────────────
+  Values > ±2.0 indicate a cell contributes significantly to χ².
+  Use these to identify WHICH emotions drive tier differences.
+macro_emotion       admiration/approval  amusement/joy  concern/disappointment  curiosity/interest  negative/critical  neutral/analytical
+tier                                                                                                                                     
+tier0_baseline                    -1.22          13.25                    1.89               -4.93              -3.91               -2.35
+tier1_general_tech                -1.29          -9.74                    0.86                6.44               5.22                0.53
+tier2_niche_tech                   2.22          -6.42                   -2.60                0.29               0.14                2.03
+
+  Cells with |residual| > 2.0 (significant drivers):
+    Tier0  × amusement/joy             : +13.25  (HIGHER than expected)
+    Tier0  × curiosity/interest        : -4.93  (LOWER than expected)
+    Tier0  × negative/critical         : -3.91  (LOWER than expected)
+    Tier0  × neutral/analytical        : -2.35  (LOWER than expected)
+    Tier1  × amusement/joy             : -9.74  (LOWER than expected)
+    Tier1  × curiosity/interest        : +6.44  (HIGHER than expected)
+    Tier1  × negative/critical         : +5.22  (HIGHER than expected)
+    Tier2  × admiration/approval       : +2.22  (HIGHER than expected)
+    Tier2  × amusement/joy             : -6.42  (LOWER than expected)
+    Tier2  × concern/disappointment    : -2.60  (LOWER than expected)
+    Tier2  × neutral/analytical        : +2.03  (HIGHER than expected)
+
+── TEST 4: PER-TOPIC CHI-SQUARE (Tier1 vs Tier2) ───────────────────
+  Tests whether emotion distributions differ per topic across tiers.
+
+  No shared topics between Tier1 and Tier2 — reporting per-tier only.
+
+  [Tier1] — chi-square per topic vs tier overall:
+    code / far / don                  n= 774  χ²=  66.53  V=0.253 [medium    ]  ***
+    exactly / year / info             n=  41  χ²=  10.81  V=0.102 [small     ]  ns
+
+  [Tier2] — chi-square per topic vs tier overall:
+    crap / windows / linux            n= 528  χ²=   7.68  V=0.063 [negligible]  ns
+    getting / user / using            n= 521  χ²= 106.83  V=0.234 [medium    ]  ***
+    thank / set / thanks              n= 162  χ²=  14.12  V=0.085 [negligible]  *
+    js / years / current              n= 126  χ²=   7.97  V=0.064 [negligible]  ns
+    wait / knew / didn                n= 109  χ²=  14.10  V=0.085 [negligible]  *
+
+── DESCRIPTIVE STATS (for methods section) ────────────────────────
+                        N  avg_words  median_words  avg_chars  pct_emoji
+tier                                                                    
+tier0_baseline      15000      10.91           8.0      58.70       19.0
+tier1_general_tech   7821      30.10          15.0     170.31        9.0
+tier2_niche_tech    14055      23.96          14.0     133.21        5.0
+
+── TEST 5: PER-CLAIM PROPORTION Z-TESTS ────────────────────────────
+  Each claim: 'Tier X has Y% of emotion Z'
+  H0: proportion in tier = proportion in full dataset
+  Test: two-proportion z-test (tier vs rest-of-dataset)
+  Bonferroni corrected for number of claims tested.
+  Claim                                Tier%   Pop%       z     p_corr  sig
+  ------------------------------------------------------------------------------
+  Tier0 amusement elevated             13.9%  10.4%  +11.34   0.00e+00  ***
+  Tier1 curiosity elevated              9.5%   7.5%   +5.95   2.08e-08  ***
+  Tier1 negative elevated               7.8%   6.3%   +4.81   1.20e-05  ***
+  Tier2 admiration elevated            14.2%  13.5%   +2.02   3.47e-01   ns
+  Tier0 curiosity suppressed            6.4%   7.5%   -4.41   8.28e-05  ***
+  Tier1 amusement suppressed            6.9%  10.4%   -9.61   0.00e+00  ***
+  Tier2 amusement suppressed            8.7%  10.4%   -5.90   2.95e-08  ***
+  Tier2 concern suppressed              2.3%   2.7%   -2.28   1.81e-01   ns
+
+  *** p<0.001  ** p<0.01  * p<0.05  ns=not significant
+  Bonferroni corrected for 8 simultaneous claims
+  Tier% = proportion in that tier, Pop% = proportion in full dataset
+
+── TEST 6: WORD COUNT DIFFERENCES (Kruskal-Wallis) ─────────────────
+  Non-parametric test: are word count distributions different across tiers?
+  Kruskal-Wallis H = 3701.82,  p = 0.00e+00  ***
+
+  Pairwise Mann-Whitney U (Bonferroni k=3):
+  Tier0 vs Tier1   : U=34472180,  p=0.00e+00  ***  (medians: 8 vs 15 words)
+  Tier0 vs Tier2   : U=69183886,  p=0.00e+00  ***  (medians: 8 vs 14 words)
+  Tier1 vs Tier2   : U=58993180,  p=6.27e-19  ***  (medians: 15 vs 14 words)
+
+── TEST 7: EMOJI USAGE DIFFERENCES (Chi-square) ────────────────────
+
+  Comparison : Emoji usage across tiers
+  N          : 36,876
+  χ²         : 1380.10  (df=2)
+  p (raw)    : 2.07e-300
+  p (corr.)  : 2.07e-300  ***
+  Cramér's V : 0.1935  [small effect]
+
+======================================================================
+Saved → statistics_report.txt
+======================================================================
